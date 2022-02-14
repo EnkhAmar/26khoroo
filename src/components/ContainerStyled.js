@@ -1,8 +1,8 @@
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
-const ContainerStyled = styled(Box)(({ theme }) => ({
-    minHeight: '85vh',
+const ContainerStyled = styled(Box)(({ theme, height=85 }) => ({
+    minHeight: `${height}vh`,
     position: 'relative',
     backgroundColor: theme.palette.primary.main,
     '& .bg-art': {
