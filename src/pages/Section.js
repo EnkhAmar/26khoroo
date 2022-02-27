@@ -1,78 +1,114 @@
-import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import React, { useEffect, useRef, useState, } from 'react';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { useParams } from "react-router-dom";
-import { Container, Grid, Typography, Box, Link, } from '@mui/material';
+import { Container, Grid, Typography, Box, Link, Pagination, Link as MuiLink, } from '@mui/material';
 import { ContainerStyled, TitleBox, SearchBox, } from '../components';
 import { HeaderBox } from './Home';
 import SvgBg from './Frame.svg'
+import data from '../db.json'
+import { sizeHeight } from '@mui/system';
+import SectionItem from '../components/SectionItem';
 
 const boldTitle = "БАЯНЗҮРХ ДҮҮРГИЙН 26-Р ХОРООНЫ"
 const title = "ХУДАЛДАА ҮЙЛЧИЛГЭЭНИЙ НЭГДСЭН МЭДЭЭЛЭЛ"
 
 const DATA = [
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: 'БАРАА, БҮТЭЭГДЭХҮҮН'},
-    {name: ''},
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
+    { name: '' },
 ]
+
+function usePrevious(value) {
+    const ref = useRef();
+    useEffect(() => {
+        ref.current = value;
+    });
+    return ref.current;
+}
 
 let navigations = [];
 
-var i,j, temporary, chunk = 4;
-for (i = 0,j = DATA.length; i < j; i += chunk) {
+var i, j, temporary, chunk = 4;
+for (i = 0, j = DATA.length; i < j; i += chunk) {
     temporary = DATA.slice(i, i + chunk);
     // do whatever
     navigations.push(temporary)
 }
-console.log(navigations)
 
-const Section = () => {
+const size = 10
+
+
+const Section = ({ match }) => {
     let params = useParams();
+    const location = useLocation();
+    const [page, setPage] = useState(1);
+    const prevPage = usePrevious(page);
+
+
+    useEffect(() => {
+        setPage(1)
+    }, [location])
+
+    const handlePagination = (event, value) => {
+        setPage(value)
+        console.log('page ' + value)
+        // document.querySelector(".App div").scrollTo(0, 0)
+    }
+    console.log(params)
+    const sectionIndex = data.sections.findIndex(section => section.slug === params.slug)
+
     return (
         <React.Fragment>
             <ContainerStyled height={65}>
-            <Container sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                minHeight: '65vh',
-                paddingTop: '2em',
-            }}>
-                <img src='https://i.ibb.co/c6kppzR/cropped-Webp-1.png' alt='logo' loading='lazy' />
-                <SearchBox  />
-                <Typography color='common.white' sx={ (theme) => ({
-                    zIndex: 10,
-                    fontSize: 64,
-                    fontWeight: theme.typography.fontWeightBold,
-                })}>
-                    Ангилал
-                </Typography>
-            </Container>
+                <Container sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    minHeight: '65vh',
+                    paddingTop: '2em',
+                }}>
+                    <MuiLink
+                        component={RouterLink}
+                        to={`/`}
+                        underline='none'
+                    >
+                        <img src='https://i.ibb.co/c6kppzR/cropped-Webp-1.png' alt='logo' loading='lazy' />
+                    </MuiLink>
+                    <SearchBox />
+                    <Typography color='common.white' sx={(theme) => ({
+                        zIndex: 10,
+                        fontSize: 64,
+                        fontWeight: theme.typography.fontWeightBold,
+                    })}>
+                        Ангилал
+                    </Typography>
+                </Container>
 
-            <img className='bg-art' src={SvgBg} alt='bg' loading='lazy' />
+                <img className='bg-art' src={SvgBg} alt='bg' loading='lazy' />
             </ContainerStyled>
-            <Grid container sx={{ zIndex: 10, minHeight: '20vh', backgroundColor: 'common.white', justifyContent: 'space-evenly' }}  columnSpacing={0.1}>
+            <Grid container sx={{ zIndex: 10, minHeight: '20vh', backgroundColor: 'common.white', justifyContent: 'space-evenly' }} columnSpacing={0.1}>
                 {
                     navigations.map((col, index) => {
                         return (
@@ -80,13 +116,13 @@ const Section = () => {
                                 {col.map((item, index) => (
                                     item.name &&
                                     <Link component={RouterLink} to='/' key={index} underline='none'>
-                                        <Box sx={{ 
-                                            width: '100%', 
-                                            backgroundColor: 'primary.main', 
-                                            height: '5vh', 
-                                            display: 'flex', 
-                                            justifyContent: 'center', 
-                                            alignItems: 'center', 
+                                        <Box sx={{
+                                            width: '100%',
+                                            backgroundColor: 'primary.main',
+                                            height: '5vh',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
                                             cursor: 'pointer',
                                             '&:hover': {
                                                 color: 'red',
@@ -95,7 +131,7 @@ const Section = () => {
                                             }
                                         }}>
                                             <Typography textAlign='center' color='common.white' fontWeight='bolder' fontSize={14}>
-                                                {item.name}    
+                                                {item.name}
                                             </Typography>
                                         </Box>
                                     </Link>
@@ -104,7 +140,18 @@ const Section = () => {
                         )
                     })
                 }
-            </Grid>    
+            </Grid>
+
+            <Container maxWidth='md'>
+                <Grid container spacing={4} mt={5}>
+                    {data.sections[sectionIndex].items.slice((page - 1) * size, page * size).map((item, index) => (
+                        <SectionItem key={index} item={item} />
+                    ))}
+                </Grid>
+            </Container>
+            <Box display="flex" justifyContent="center" my={5} >
+                <Pagination count={Math.ceil(data.sections[sectionIndex].items.length / size)} page={page} shape="rounded" color="primary" onChange={handlePagination} />
+            </Box>
             {params.slug}
         </React.Fragment>
     );
