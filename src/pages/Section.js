@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { Container, Grid, Typography, Box, Link, Pagination, Link as MuiLink, } from '@mui/material';
-import { ContainerStyled, TitleBox, SearchBox, } from '../components';
+import { ContainerStyled, TitleBox, SearchBox, SelectOptions, } from '../components';
 import { HeaderBox } from './Home';
 import SvgBg from './Frame.svg'
 import data from '../db.json'
@@ -142,6 +142,8 @@ const Section = ({ match }) => {
             </Grid>
 
             <Container maxWidth='md'>
+                {/* <SelectOptions /> */}
+
                 <Grid container spacing={4} mt={5}>
                     {data.sections[sectionIndex].items.slice((page - 1) * size, page * size).map((item, index) => (
                         <SectionItem key={index} item={item} />
