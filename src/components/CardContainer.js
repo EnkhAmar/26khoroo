@@ -26,8 +26,8 @@ const SectionCard = ({ card }) => {
                     >
                     <CardMedia component='div' sx={{ paddingTop: '56.25%' }} image={card.image} alt={card.slug} />
                     {/* <CardImage /> */}
-                    <CardContent sx={{ flexGrow: 1 }}>
-                        <Typography gutterBottom variant="h5" component="h2">
+                    <CardContent sx={{ flexGrow: 1, bgcolor: 'primary.main', padding: 1, '&:last-child': { paddingBottom: 1 } }}>
+                        <Typography variant="subtitle1" component="h2" color="common.white" textTransform='uppercase' fontWeight='900' textAlign='center'>
                             {card.title}
                         </Typography>
                     </CardContent>
