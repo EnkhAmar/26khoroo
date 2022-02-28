@@ -142,7 +142,7 @@ const Section = ({ match }) => {
             </Grid>
 
             <Container maxWidth='md'>
-                {/* <SelectOptions /> */}
+                
 
                 <Grid container spacing={4} mt={5}>
                     {data.sections[sectionIndex].items.slice((page - 1) * size, page * size).map((item, index) => (
