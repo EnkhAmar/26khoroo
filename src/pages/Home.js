@@ -1,5 +1,6 @@
 import React from 'react';
-import { Paper, Box, Container, } from '@mui/material';
+import { Paper, Box, Container, Link as MuiLink, } from '@mui/material';
+import { Link as RouterLink, useLocation, } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import { TitleBox, SearchBox, CardContainer, ContainerStyled, } from '../components';
 import SvgBg from './Frame.svg'
@@ -17,7 +18,13 @@ export const HeaderBox = ({boldTitle, title}) => (
         minHeight: '65vh',
         paddingTop: '2em',
     }}>
-        <img src='https://i.ibb.co/c6kppzR/cropped-Webp-1.png' alt='logo' loading='lazy' />
+        <MuiLink
+            component={RouterLink}
+            to={`/`}
+            underline='none'
+        >
+            <img src='https://i.ibb.co/c6kppzR/cropped-Webp-1.png' alt='logo' loading='lazy' />
+        </MuiLink>
         <TitleBox boldText={boldTitle} text={title} />
         <SearchBox  />
     </Container>

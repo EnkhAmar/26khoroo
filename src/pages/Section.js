@@ -6,38 +6,10 @@ import { ContainerStyled, TitleBox, SearchBox, } from '../components';
 import { HeaderBox } from './Home';
 import SvgBg from './Frame.svg'
 import data from '../db.json'
-import { sizeHeight } from '@mui/system';
 import SectionItem from '../components/SectionItem';
 
 const boldTitle = "БАЯНЗҮРХ ДҮҮРГИЙН 26-Р ХОРООНЫ"
 const title = "ХУДАЛДАА ҮЙЛЧИЛГЭЭНИЙ НЭГДСЭН МЭДЭЭЛЭЛ"
-
-const DATA = [
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: 'БАРАА, БҮТЭЭГДЭХҮҮН' },
-    { name: '' },
-]
 
 function usePrevious(value) {
     const ref = useRef();
@@ -50,8 +22,8 @@ function usePrevious(value) {
 let navigations = [];
 
 var i, j, temporary, chunk = 4;
-for (i = 0, j = DATA.length; i < j; i += chunk) {
-    temporary = DATA.slice(i, i + chunk);
+for (i = 0, j = data.sections.length; i < j; i += chunk) {
+    temporary = data.sections.slice(i, i + chunk);
     // do whatever
     navigations.push(temporary)
 }
@@ -65,7 +37,7 @@ const Section = ({ match }) => {
     const [page, setPage] = useState(1);
     const prevPage = usePrevious(page);
 
-
+    console.log(data)
     useEffect(() => {
         setPage(1)
     }, [location])
@@ -114,8 +86,8 @@ const Section = ({ match }) => {
                         return (
                             <Grid item xs={2} key={index}>
                                 {col.map((item, index) => (
-                                    item.name &&
-                                    <Link component={RouterLink} to='/' key={index} underline='none'>
+                                    item.title &&
+                                    <Link component={RouterLink} to={`/sections/${item.slug}`} key={index} underline='none'>
                                         <Box sx={{
                                             width: '100%',
                                             backgroundColor: 'primary.main',
@@ -131,7 +103,7 @@ const Section = ({ match }) => {
                                             }
                                         }}>
                                             <Typography textAlign='center' color='common.white' fontWeight='bolder' fontSize={14}>
-                                                {item.name}
+                                                {item.title}
                                             </Typography>
                                         </Box>
                                     </Link>
@@ -152,7 +124,6 @@ const Section = ({ match }) => {
             <Box display="flex" justifyContent="center" my={5} >
                 <Pagination count={Math.ceil(data.sections[sectionIndex].items.length / size)} page={page} shape="rounded" color="primary" onChange={handlePagination} />
             </Box>
-            {params.slug}
         </React.Fragment>
     );
 };
