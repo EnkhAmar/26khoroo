@@ -29,6 +29,9 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(0, 3),
+    }
 }));
   
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -44,14 +47,24 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
     '& .MuiInputBase-input::placeholder': {
         color: alpha(theme.palette.primary.main, 0.95),
-    }
+    },
+    [theme.breakpoints.down('md')]: {
+      fontSize: theme.typography.body1.fontSize,
+      '& .MuiInputBase-input': {
+        padding: theme.spacing(2, 6, 2, 2),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(0.5em + ${theme.spacing(7)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+      },
+    },
 }));
 
 const SearchBox = () => {
   return (
     <Search>
         <SearchIconWrapper>
-            <SearchIcon color='primary' sx={{ fontSize: '3.2em' }} />
+            <SearchIcon color='primary' sx={(theme) => ({ fontSize: '3.2em', [theme.breakpoints.down('md')]: { fontSize: '2.2em' } })} />
         </SearchIconWrapper>
         <StyledInputBase
             placeholder="Хайх нэрээ энд бичнэ үү"
