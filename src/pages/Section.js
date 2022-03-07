@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link as RouterLink, useLocation, useNavigate, } from "react-router-dom";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import {
   Container,
@@ -121,7 +121,7 @@ const Section = ({ match }) => {
 
   const handleSectionChange = (event) => {
     setSection(event.target.value);
-    navigate(`/sections/${event.target.value}`)
+    navigate(`/sections/${event.target.value}`);
   };
 
   const sectionIndex = data.sections.findIndex(
@@ -129,7 +129,7 @@ const Section = ({ match }) => {
   );
 
   if (sectionIndex < 0) {
-    return <h1>404 LOL</h1>
+    return <h1>404 LOL</h1>;
   }
 
   return (
@@ -239,10 +239,7 @@ const Section = ({ match }) => {
           >
             Ангилал сонгох
           </Typography>
-          <FormControl
-            fullWidth
-            sx={{ minWidth: 100, maxWidth: 420 }}
-          >
+          <FormControl fullWidth sx={{ minWidth: 100, maxWidth: 420 }}>
             <InputLabel id="sectionlabel">Ангилал</InputLabel>
             <Select
               labelId="section-label"
