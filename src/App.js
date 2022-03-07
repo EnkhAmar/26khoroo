@@ -6,6 +6,16 @@ import { Home, Section, NotFound } from "./pages";
 import { Layout } from "./components";
 
 function App() {
+  const [isLoading, setLoading] = React.useState(true)
+  React.useEffect(() => {
+    const el = document.querySelector(".loader-container")
+    if (el) setLoading(!isLoading)
+  }, [])
+
+  if (isLoading) {
+    return null
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Layout>
