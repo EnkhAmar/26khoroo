@@ -1,10 +1,9 @@
-import * as React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material/styles';
-import theme from './config/theme';
-import { Home, Section, NotFound, } from './pages'
-import { Layout } from './components';
-
+import * as React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./config/theme";
+import { Home, Section, NotFound } from "./pages";
+import { Layout } from "./components";
 
 function App() {
   return (
