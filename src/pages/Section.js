@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link as RouterLink, useLocation, useNavigate, } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import {
   Container,
@@ -104,30 +104,33 @@ const size = 10;
 
 const Section = ({ match }) => {
   let params = useParams();
+  let navigate = useNavigate();
   const location = useLocation();
   const [page, setPage] = useState(1);
   const [section, setSection] = useState(params.slug ?? "");
   const prevPage = usePrevious(page);
 
-  console.log(data);
   useEffect(() => {
     setPage(1);
   }, [location]);
 
   const handlePagination = (event, value) => {
     setPage(value);
-    console.log("page " + value);
     // document.querySelector(".App div").scrollTo(0, 0)
   };
 
   const handleSectionChange = (event) => {
-    setSection(event.targe.value);
+    setSection(event.target.value);
+    navigate(`/sections/${event.target.value}`)
   };
 
-  console.log(params);
   const sectionIndex = data.sections.findIndex(
     (section) => section.slug === params.slug
   );
+
+  if (sectionIndex < 0) {
+    return <h1>404 LOL</h1>
+  }
 
   return (
     <React.Fragment>
@@ -238,7 +241,6 @@ const Section = ({ match }) => {
           </Typography>
           <FormControl
             fullWidth
-            justifyContent="center"
             sx={{ minWidth: 100, maxWidth: 420 }}
           >
             <InputLabel id="sectionlabel">Ангилал</InputLabel>
@@ -246,7 +248,7 @@ const Section = ({ match }) => {
               labelId="section-label"
               id="section-select"
               value={section}
-              onSelect={handleSectionChange}
+              onChange={handleSectionChange}
               label="Ангилал сонгох"
             >
               {data.sections.map((item) => (
