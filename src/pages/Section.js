@@ -22,6 +22,7 @@ import {
   SelectOptions,
 } from "../components";
 import { HeaderBox } from "./Home";
+import useSearchTerm from "../hooks/useSearchTerm";
 import SvgBg from "./Frame.svg";
 import SvgBgSmall from "./Small-Device-Frame.svg";
 import data from "../db.json";
@@ -137,6 +138,7 @@ const size = 10;
 const Section = ({ match }) => {
   let params = useParams();
   let navigate = useNavigate();
+  const { searchPattern } = useSearchTerm()
   const location = useLocation();
   const [page, setPage] = useState(1);
   const [section, setSection] = useState(params.slug ?? "");
@@ -163,6 +165,13 @@ const Section = ({ match }) => {
   if (sectionIndex < 0) {
     return <h1>404 LOL</h1>;
   }
+
+  let filterArray = [];
+  data.sections[sectionIndex].items.filter(item => item.title).forEach(item => {
+    if ((item.excerpt.toLocaleLowerCase().search(searchPattern) !== -1) || (item.title.toLocaleLowerCase().search(searchPattern) !== -1)) {
+      filterArray.push(item)
+    }
+  })
 
   return (
     <React.Fragment>
@@ -296,8 +305,8 @@ const Section = ({ match }) => {
               onChange={handleSectionChange}
               label="Ангилал сонгох"
             >
-              {data.sections.map((item) => (
-                <MenuItem key={item.slug} value={item.slug}>
+              {data.sections.map((item, key) => (
+                <MenuItem key={`${item.slug}${key}`} value={item.slug}>
                   {item.title}
                 </MenuItem>
               ))}
@@ -306,7 +315,7 @@ const Section = ({ match }) => {
         </CategoryBoxStyled>
 
         <Grid container spacing={4} mt={5}>
-          {data.sections[sectionIndex].items
+          {filterArray
             .slice((page - 1) * size, page * size)
             .map((item, index) => (
               <SectionItem key={index} item={item} />
@@ -315,7 +324,7 @@ const Section = ({ match }) => {
       </Container>
       <Box display="flex" justifyContent="center" my={5}>
         <Pagination
-          count={Math.ceil(data.sections[sectionIndex].items.length / size)}
+          count={Math.ceil(filterArray.length / size)}
           page={page}
           shape="rounded"
           color="primary"

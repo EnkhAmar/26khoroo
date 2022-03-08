@@ -4,6 +4,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./config/theme";
 import { Home, Section, NotFound } from "./pages";
 import { Layout } from "./components";
+import { SearchTermProvider } from './contexts/SearchTermContext';
 
 function App() {
   const [isLoading, setLoading] = React.useState(true);
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <SearchTermProvider>
       <Layout>
         <BrowserRouter>
           <Routes>
@@ -30,6 +32,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </Layout>
+      </SearchTermProvider>
     </ThemeProvider>
   );
 }

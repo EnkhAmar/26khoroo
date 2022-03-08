@@ -55,7 +55,7 @@ export default function SectionItem(props) {
         sx={(theme) => ({
           display: "flex",
           border: "2px solid #0B447E",
-          maxHeight: "300px",
+          maxHeight: "250px",
           [theme.breakpoints.down("sm")]: {
             maxHeight: "170px",
           },

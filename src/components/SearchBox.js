@@ -2,6 +2,7 @@ import React from "react";
 import { InputBase } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
+import useSearchTerm from '../hooks/useSearchTerm'
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -61,6 +62,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const SearchBox = () => {
+  const { searchTerm, setSearchTerm } = useSearchTerm()
+
+  
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value)
+  }
+
   return (
     <Search>
       <SearchIconWrapper>
@@ -75,6 +83,8 @@ const SearchBox = () => {
       <StyledInputBase
         placeholder="Хайх нэрээ энд бичнэ үү"
         inputProps={{ "aria-label": "search" }}
+        onChange={handleSearch}
+        value={searchTerm}
       />
     </Search>
   );

@@ -1408,25 +1408,29 @@
                     "title": "Мэнд Мед Фарм Эмийн сан",
                     "address": "Olymp Village, 201-р байр",
                     "phone1": "99997245",
-                    "excerpt": "Эмийн үйлдвэрлэл, худалдаа"
+                    "excerpt": "Эмийн үйлдвэрлэл, худалдаа",
+                    "image": "https://source.unsplash.com/random/1200x600?medicine,pharmacy"
                 },
                 {
                     "title": "Булга Медикал Эмийн сан",
                     "address": "Elizabeth",
                     "phone1": "99089526",
-                    "excerpt": "Эмийн үйлдвэрлэл, худалдаа"
+                    "excerpt": "Эмийн үйлдвэрлэл, худалдаа",
+                    "image": "https://source.unsplash.com/random/1200x600?medicine,pharmacy"
                 },
                 {
                     "title": "Супер Тун Эмийн сан",
                     "address": "Olymp Village 200-р байр",
                     "phone1": "",
-                    "excerpt": "Эмийн үйлдвэрлэл, худалдаа"
+                    "excerpt": "Эмийн үйлдвэрлэл, худалдаа",
+                    "image": "https://source.unsplash.com/random/1200x600?medicine,pharmacy"
                 },
                 {
                     "title": "Central Pharm",
                     "address": "Emart 2 давхарт",
                     "phone1": "",
-                    "excerpt": "Эмийн үйлдвэрлэл, худалдаа"
+                    "excerpt": "Эмийн үйлдвэрлэл, худалдаа",
+                    "image": "https://source.unsplash.com/random/1200x600?medicine,pharmacy"
                 }
             ]
         },
