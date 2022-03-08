@@ -222,7 +222,7 @@ const Section = ({ match }) => {
           <Box component="img" src={SvgBg} alt="bg" loading="lazy" />
         </Box>
       </ContainerStyled>
-      <GridContainerStyled container columnSpacing={0.1}>
+      <GridContainerStyled container columnSpacing={0.2}>
         {navigations.map((col, index) => {
           return (
             <Grid item xs={2} key={index}>
