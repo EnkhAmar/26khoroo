@@ -90,7 +90,8 @@
                     "title": "Хан Эгшиг Хөгжимийн сургалтын төв",
                     "address": "Olymp village 200-р байр",
                     "phone1": "88003103",
-                    "phone2": "99107403"
+                    "phone2": "99107403",
+                    "image": "https://source.unsplash.com/random?education"
                 },
                 {
                     "title": "Батхүлэг Авто сургууль",
@@ -107,7 +108,8 @@
                     "phone1": "89102210",
                     "excerpt": "",
                     "fbName": "NA-NA children’s music academy",
-                    "fbLink": "https://www.facebook.com/groups/704888280380367"
+                    "fbLink": "https://www.facebook.com/groups/704888280380367",
+                    "image": "https://source.unsplash.com/random?education"
                 },
                 {
                     "title": "VIP Music Store",
