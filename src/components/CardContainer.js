@@ -63,9 +63,10 @@ const CardContainer = () => {
   return (
     <Container sx={{ py: 8 }} maxWidth="lg">
       <Grid container spacing={4}>
-        {data.sections.map((section) => (
-          section.slug && <SectionCard key={section.slug} card={section} />
-        ))}
+        {data.sections.map(
+          (section) =>
+            section.slug && <SectionCard key={section.slug} card={section} />
+        )}
       </Grid>
     </Container>
   );
