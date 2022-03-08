@@ -9,7 +9,10 @@ function App() {
   const [isLoading, setLoading] = React.useState(true)
   React.useEffect(() => {
     const el = document.querySelector(".loader-container")
-    if (el) setLoading(!isLoading)
+    if (el) {
+      el.remove()
+      setLoading(!isLoading)
+    }
   }, [])
 
   if (isLoading) {

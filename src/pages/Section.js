@@ -17,17 +17,49 @@ import {
 import { styled } from "@mui/material/styles";
 import {
   ContainerStyled,
-  TitleBox,
+  // TitleBox,
   SearchBox,
   SelectOptions,
 } from "../components";
 import { HeaderBox } from "./Home";
 import SvgBg from "./Frame.svg";
+import SvgBgSmall from "./Small-Device-Frame.svg"
 import data from "../db.json";
 import SectionItem from "../components/SectionItem";
 
 const boldTitle = "БАЯНЗҮРХ ДҮҮРГИЙН 26-Р ХОРООНЫ";
 const title = "ХУДАЛДАА ҮЙЛЧИЛГЭЭНИЙ НЭГДСЭН МЭДЭЭЛЭЛ";
+
+const TitleBox = ({ boldText, text }) => {
+  return (
+    <Box textAlign="center" sx={{ zIndex: 10 }}>
+      <Typography
+        color="common.white"
+        sx={(theme) => ({
+          fontSize: "1em",
+          fontWeight: theme.typography.fontWeightBold,
+          [theme.breakpoints.up('md')]: {
+            display: "none",
+          }
+        })}
+      >
+        {boldText}
+      </Typography>
+      <Typography
+        color="common.white"
+        sx={(theme) => ({
+          fontWeight: theme.typography.fontWeightLight,
+          fontSize: "1.25em",
+          [theme.breakpoints.up('md')]: {
+            display: "none",
+          }
+        })}
+      >
+        {text}
+      </Typography>
+    </Box>
+  );
+};
 
 const SelectStyled = styled(Select)(({ theme }) => ({
   border: `4px solid ${theme.palette.primary.main}`,
@@ -150,12 +182,20 @@ const Section = ({ match }) => {
           })}
         >
           <MuiLink component={RouterLink} to={`/`} underline="none">
-            <img
+            <Box
+              component="img"
               src="https://i.ibb.co/c6kppzR/cropped-Webp-1.png"
               alt="logo"
               loading="lazy"
+              sx={(theme) => ({
+                width: "74px",
+                [theme.breakpoints.up("sm")]: {
+                  width: "auto"
+                }
+              })}
             />
           </MuiLink>
+          <TitleBox boldText={boldTitle} text={title} />
           <SearchBox />
           <Typography
             color="common.white"
@@ -172,7 +212,11 @@ const Section = ({ match }) => {
           </Typography>
         </Container>
 
-        <img className="bg-art" src={SvgBg} alt="bg" loading="lazy" />
+        {/* <img className="bg-art" src={SvgBg} alt="bg" loading="lazy" /> */}
+        <Box component="picture" className="bg-art">
+          <Box component="source" media="(max-width:650px)" srcSet={SvgBgSmall} />
+          <Box component="img" src={SvgBg} alt="bg" loading="lazy" />
+        </Box>
       </ContainerStyled>
       <GridContainerStyled container columnSpacing={0.1}>
         {navigations.map((col, index) => {

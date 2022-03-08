@@ -7,10 +7,14 @@ const ContainerStyled = styled(Box)(({ theme, height = 85 }) => ({
   backgroundColor: theme.palette.primary.main,
   "& .bg-art": {
     width: "100%",
+    
+  },
+  "& .bg-art img": {
+    width: "100%",
     position: "absolute",
     bottom: 0,
     zIndex: "1",
-  },
+  }
 }));
 
 export default ContainerStyled;
