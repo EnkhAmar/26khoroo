@@ -138,7 +138,7 @@ const size = 10;
 const Section = ({ match }) => {
   let params = useParams();
   let navigate = useNavigate();
-  const { searchPattern } = useSearchTerm()
+  const { searchPattern } = useSearchTerm();
   const location = useLocation();
   const [page, setPage] = useState(1);
   const [section, setSection] = useState(params.slug ?? "");
@@ -167,11 +167,16 @@ const Section = ({ match }) => {
   }
 
   let filterArray = [];
-  data.sections[sectionIndex].items.filter(item => item.title).forEach(item => {
-    if ((item.excerpt.toLocaleLowerCase().search(searchPattern) !== -1) || (item.title.toLocaleLowerCase().search(searchPattern) !== -1)) {
-      filterArray.push(item)
-    }
-  })
+  data.sections[sectionIndex].items
+    .filter((item) => item.title)
+    .forEach((item) => {
+      if (
+        item.excerpt.toLocaleLowerCase().search(searchPattern) !== -1 ||
+        item.title.toLocaleLowerCase().search(searchPattern) !== -1
+      ) {
+        filterArray.push(item);
+      }
+    });
 
   return (
     <React.Fragment>

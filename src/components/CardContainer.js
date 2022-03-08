@@ -61,22 +61,26 @@ const SectionCard = ({ card }) => {
 };
 
 const CardContainer = () => {
-  const { searchPattern } = useSearchTerm()
+  const { searchPattern } = useSearchTerm();
   let arr = [];
 
-  data.sections.filter(item => item.title).forEach(item => {
-    if ((item.excerpt.toLocaleLowerCase().search(searchPattern) !== -1) || (item.title.toLocaleLowerCase().search(searchPattern) !== -1)) {
-      arr.push(item)
-    }
-  })
+  data.sections
+    .filter((item) => item.title)
+    .forEach((item) => {
+      if (
+        item.excerpt.toLocaleLowerCase().search(searchPattern) !== -1 ||
+        item.title.toLocaleLowerCase().search(searchPattern) !== -1
+      ) {
+        arr.push(item);
+      }
+    });
 
   return (
     <Container sx={{ py: 8 }} maxWidth="lg">
       <Grid container spacing={4}>
-        {arr.map(
-          (section) =>
-            <SectionCard key={section.slug} card={section} />
-        )}
+        {arr.map((section) => (
+          <SectionCard key={section.slug} card={section} />
+        ))}
       </Grid>
     </Container>
   );
