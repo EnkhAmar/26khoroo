@@ -64,7 +64,7 @@ const CardContainer = () => {
     <Container sx={{ py: 8 }} maxWidth="lg">
       <Grid container spacing={4}>
         {data.sections.map((section) => (
-          <SectionCard key={section.slug} card={section} />
+          section.slug && <SectionCard key={section.slug} card={section} />
         ))}
       </Grid>
     </Container>
