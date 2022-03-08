@@ -6,17 +6,17 @@ import { Home, Section, NotFound } from "./pages";
 import { Layout } from "./components";
 
 function App() {
-  const [isLoading, setLoading] = React.useState(true)
+  const [isLoading, setLoading] = React.useState(true);
   React.useEffect(() => {
-    const el = document.querySelector(".loader-container")
+    const el = document.querySelector(".loader-container");
     if (el) {
-      el.remove()
-      setLoading(!isLoading)
+      el.remove();
+      setLoading(!isLoading);
     }
-  }, [])
+  }, []);
 
   if (isLoading) {
-    return null
+    return null;
   }
 
   return (

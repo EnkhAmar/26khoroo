@@ -23,7 +23,7 @@ import {
 } from "../components";
 import { HeaderBox } from "./Home";
 import SvgBg from "./Frame.svg";
-import SvgBgSmall from "./Small-Device-Frame.svg"
+import SvgBgSmall from "./Small-Device-Frame.svg";
 import data from "../db.json";
 import SectionItem from "../components/SectionItem";
 
@@ -38,9 +38,9 @@ const TitleBox = ({ boldText, text }) => {
         sx={(theme) => ({
           fontSize: "1em",
           fontWeight: theme.typography.fontWeightBold,
-          [theme.breakpoints.up('md')]: {
+          [theme.breakpoints.up("md")]: {
             display: "none",
-          }
+          },
         })}
       >
         {boldText}
@@ -50,9 +50,9 @@ const TitleBox = ({ boldText, text }) => {
         sx={(theme) => ({
           fontWeight: theme.typography.fontWeightLight,
           fontSize: "1.25em",
-          [theme.breakpoints.up('md')]: {
+          [theme.breakpoints.up("md")]: {
             display: "none",
-          }
+          },
         })}
       >
         {text}
@@ -190,8 +190,8 @@ const Section = ({ match }) => {
               sx={(theme) => ({
                 width: "74px",
                 [theme.breakpoints.up("sm")]: {
-                  width: "auto"
-                }
+                  width: "auto",
+                },
               })}
             />
           </MuiLink>
@@ -214,7 +214,11 @@ const Section = ({ match }) => {
 
         {/* <img className="bg-art" src={SvgBg} alt="bg" loading="lazy" /> */}
         <Box component="picture" className="bg-art">
-          <Box component="source" media="(max-width:650px)" srcSet={SvgBgSmall} />
+          <Box
+            component="source"
+            media="(max-width:650px)"
+            srcSet={SvgBgSmall}
+          />
           <Box component="img" src={SvgBg} alt="bg" loading="lazy" />
         </Box>
       </ContainerStyled>

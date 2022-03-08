@@ -51,20 +51,27 @@ export default function SectionItem(props) {
 
   return (
     <Grid item xs={12} md={12}>
-      <Card sx={(theme) => ({ display: "flex", border: "2px solid #0B447E", maxHeight: "300px", [theme.breakpoints.down('sm')]: {
-        maxHeight: "170px",
-      } })} elevation={0}>
+      <Card
+        sx={(theme) => ({
+          display: "flex",
+          border: "2px solid #0B447E",
+          maxHeight: "300px",
+          [theme.breakpoints.down("sm")]: {
+            maxHeight: "170px",
+          },
+        })}
+        elevation={0}
+      >
         <CardMedia
           component="img"
-          sx={(theme) => ({ 
-            width: "40%", 
+          sx={(theme) => ({
+            width: "40%",
             display: "block",
-            height: "auto", 
+            height: "auto",
             // maxHeight: 220,
             [theme.breakpoints.down("sm")]: {
               // maxHeight: 150,
-
-            }
+            },
           })}
           image={item.image ?? "https://i.ibb.co/6v1FtBY/download.png"}
           alt="logo"
@@ -78,10 +85,10 @@ export default function SectionItem(props) {
             justifyContent: "center",
             [theme.breakpoints.down("sm")]: {
               pl: 2,
-              '& h2': {
+              "& h2": {
                 fontSize: 14,
-              }
-            }
+              },
+            },
           })}
         >
           <Typography
@@ -90,7 +97,10 @@ export default function SectionItem(props) {
             textTransform="uppercase"
             color="primary"
             fontWeight="bold"
-            sx={theme => ({ mb: 1, [theme.breakpoints.down("sm")]: { mb: 0 } })}
+            sx={(theme) => ({
+              mb: 1,
+              [theme.breakpoints.down("sm")]: { mb: 0 },
+            })}
           >
             {item.title}
           </Typography>
@@ -98,7 +108,10 @@ export default function SectionItem(props) {
             variant="body2"
             textTransform="uppercase"
             color="primary"
-            sx={theme => ({ mb: 1, [theme.breakpoints.down("sm")]: { mb: 0 } })}
+            sx={(theme) => ({
+              mb: 1,
+              [theme.breakpoints.down("sm")]: { mb: 0 },
+            })}
           >
             {item.address}
           </Typography>
@@ -108,7 +121,12 @@ export default function SectionItem(props) {
                 size="small"
                 color="primary"
                 variant="contained"
-                sx={(theme) => ({ px: 4, py: 0.5, borderRadius: 0, [theme.breakpoints.down("sm")]: { px: 1, py: 0, } })}
+                sx={(theme) => ({
+                  px: 4,
+                  py: 0.5,
+                  borderRadius: 0,
+                  [theme.breakpoints.down("sm")]: { px: 1, py: 0 },
+                })}
                 disableElevation
               >
                 <Box
@@ -135,7 +153,12 @@ export default function SectionItem(props) {
                 size="small"
                 color="primary"
                 variant="contained"
-                sx={(theme) => ({ px: 4, py: 0.5, borderRadius: 0, [theme.breakpoints.down("sm")]: { px: 1, py: 0, } })}
+                sx={(theme) => ({
+                  px: 4,
+                  py: 0.5,
+                  borderRadius: 0,
+                  [theme.breakpoints.down("sm")]: { px: 1, py: 0 },
+                })}
                 disableElevation
               >
                 <Box
@@ -159,12 +182,17 @@ export default function SectionItem(props) {
             )}
           </CardActions>
           {item.fbLink && (
-          <CardActions sx={{ pl: 0 }}>
+            <CardActions sx={{ pl: 0 }}>
               <Button
                 size="small"
                 color="primary"
                 variant="outlined"
-                sx={(theme) => ({ px: 4, py: 0.5, textTransform: "none", [theme.breakpoints.down("sm")]: { px: 1, py: 0 } })}
+                sx={(theme) => ({
+                  px: 4,
+                  py: 0.5,
+                  textTransform: "none",
+                  [theme.breakpoints.down("sm")]: { px: 1, py: 0 },
+                })}
                 disableElevation
               >
                 <Box
@@ -185,7 +213,7 @@ export default function SectionItem(props) {
                   </Typography>
                 </Box>
               </Button>
-          </CardActions>
+            </CardActions>
           )}
         </CardContent>
       </Card>

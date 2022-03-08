@@ -9,7 +9,7 @@ import {
   ContainerStyled,
 } from "../components";
 import SvgBg from "./Frame.svg";
-import SvgBgSmall from "./Small-Device-Frame.svg"
+import SvgBgSmall from "./Small-Device-Frame.svg";
 import data from "../db.json";
 
 const boldTitle = "БАЯНЗҮРХ ДҮҮРГИЙН 26-Р ХОРООНЫ";
@@ -27,11 +27,11 @@ export const HeaderBox = ({ boldTitle, title }) => (
     }}
   >
     <MuiLink component={RouterLink} to={`/`} underline="none">
-        <img
-          src="https://i.ibb.co/c6kppzR/cropped-Webp-1.png"
-          alt="logo"
-          loading="lazy"
-        />
+      <img
+        src="https://i.ibb.co/c6kppzR/cropped-Webp-1.png"
+        alt="logo"
+        loading="lazy"
+      />
     </MuiLink>
     <TitleBox boldText={boldTitle} text={title} />
     <SearchBox />
@@ -45,8 +45,11 @@ const Home = () => {
         <HeaderBox boldTitle={boldTitle} title={title} />
         {/* <Box component="img" className="bg-art" src={SvgBg} alt="bg" loading="lazy" /> */}
         <Box component="picture" className="bg-art">
-          
-          <Box component="source" media="(max-width:650px)" srcSet={SvgBgSmall} />
+          <Box
+            component="source"
+            media="(max-width:650px)"
+            srcSet={SvgBgSmall}
+          />
           <Box component="img" src={SvgBg} alt="bg" loading="lazy" />
         </Box>
       </ContainerStyled>
