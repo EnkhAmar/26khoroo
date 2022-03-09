@@ -14,7 +14,7 @@ function SearchTermProvider({ children }) {
 
     const handleSearchTerm = (value) => {
         setSearch(value)
-        setPattern(value.toLowerCase())
+        setPattern(value.toLowerCase().trim())
     }
 
     return (
