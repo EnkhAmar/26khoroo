@@ -12,10 +12,10 @@ function SearchTermProvider({ children }) {
   const [search, setSearch] = useState("");
   const [pattern, setPattern] = useState("");
 
-    const handleSearchTerm = (value) => {
-        setSearch(value)
-        setPattern(value.toLowerCase().trim())
-    }
+  const handleSearchTerm = (value) => {
+    setSearch(value);
+    setPattern(value.toLowerCase().trim());
+  };
 
   return (
     <SearchTermContext.Provider

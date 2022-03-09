@@ -31,33 +31,48 @@ import SectionItem from "../components/SectionItem";
 const boldTitle = "БАЯНЗҮРХ ДҮҮРГИЙН 26-Р ХОРООНЫ";
 const title = "ХУДАЛДАА ҮЙЛЧИЛГЭЭНИЙ НЭГДСЭН МЭДЭЭЛЭЛ";
 
-
 // const searchFilters = ["title", "excerpt", "slug", "phone1", "phone2", "fbName", "address"];
-const searchFilters = ["title", "slug", "phone1", "phone2", "fbName", "address"];
-const filterData = (searchPattern, data, sectionIndex,) => {
-  let filterArray = data.sections[sectionIndex].items.filter(item => item.title).map(item => {
-    if ((item.excerpt.toLocaleLowerCase().search(searchPattern) !== -1) || (item.title.toLocaleLowerCase().search(searchPattern) !== -1)) {
-      return item
-    }
-  })
+const searchFilters = [
+  "title",
+  "slug",
+  "phone1",
+  "phone2",
+  "fbName",
+  "address",
+];
+const filterData = (searchPattern, data, sectionIndex) => {
+  let filterArray = data.sections[sectionIndex].items
+    .filter((item) => item.title)
+    .map((item) => {
+      if (
+        item.excerpt.toLocaleLowerCase().search(searchPattern) !== -1 ||
+        item.title.toLocaleLowerCase().search(searchPattern) !== -1
+      ) {
+        return item;
+      }
+    });
 
   if (searchPattern !== "") {
-    const result = new Set()
-    data.sections.forEach(section => {
-      if ("items" in section ) {
+    const result = new Set();
+    data.sections.forEach((section) => {
+      if ("items" in section) {
         for (const item of section.items)
           for (const key in item)
-            if (searchFilters.includes(key) && (item[key].toLowerCase().search(searchPattern) !== -1))
-              result.add(item)
+            if (
+              searchFilters.includes(key) &&
+              item[key].toLowerCase().search(searchPattern) !== -1
+            )
+              result.add(item);
       }
-    })
+    });
     filterArray = Array.from(result).sort((a, b) => {
-      let aSlug = a['slug'] ? 1 : 0, bSlug = b['slug'] ? 1 : 0
-      return aSlug < bSlug ? 1 : -1
-    })
+      let aSlug = a["slug"] ? 1 : 0,
+        bSlug = b["slug"] ? 1 : 0;
+      return aSlug < bSlug ? 1 : -1;
+    });
   }
-  return filterArray
-}
+  return filterArray;
+};
 
 const TitleBox = ({ boldText, text }) => {
   return (
@@ -194,7 +209,7 @@ const Section = ({ match }) => {
     return <h1>404 LOL</h1>;
   }
 
-  let filterArray = filterData(searchPattern, data, sectionIndex)
+  let filterArray = filterData(searchPattern, data, sectionIndex);
 
   return (
     <React.Fragment>
