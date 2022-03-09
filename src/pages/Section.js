@@ -293,7 +293,7 @@ const Section = ({ match }) => {
                           cursor: "pointer",
                           "&:hover": {
                             color: "red",
-                            backgroundColor: "red",
+                            backgroundColor: "#a51220",
                             borderRadius: "1px solid white",
                           },
                         }}
