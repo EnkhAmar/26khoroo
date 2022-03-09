@@ -166,7 +166,7 @@ const size = 10;
 const Section = ({ match }) => {
   let params = useParams();
   let navigate = useNavigate();
-  const { searchPattern } = useSearchTerm()
+  const { searchPattern } = useSearchTerm();
   const location = useLocation();
   const [page, setPage] = useState(1);
   const [section, setSection] = useState(params.slug ?? "");

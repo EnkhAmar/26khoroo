@@ -2,7 +2,7 @@ import React from "react";
 import { InputBase } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
-import useSearchTerm from '../hooks/useSearchTerm'
+import useSearchTerm from "../hooks/useSearchTerm";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -62,12 +62,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const SearchBox = () => {
-  const { searchTerm, setSearchTerm } = useSearchTerm()
+  const { searchTerm, setSearchTerm } = useSearchTerm();
 
-  
   const handleSearch = (event) => {
-    setSearchTerm(event.target.value)
-  }
+    setSearchTerm(event.target.value);
+  };
 
   return (
     <Search>
