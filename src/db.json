@@ -1400,7 +1400,7 @@
                     "phone1": "77222926",
                     "excerpt": "Эмийн үйлдвэрлэл, худалдаа",
                     "fbName": "НАХИА эмийн үйлдвэр",
-                    "fbLink": "https://www.facebook.com/Nakhia1994/",
+                    "fbLink": "https://www.facebook.com/Nakhia1994/",   
                     "image": "https://i.ibb.co/10KSdyf/53d7e28a7846e95554a7e0a7d3b1f746dfe17757.webp",
                     "webURL": "http://www.nakhia.mn/"
                 },
@@ -1429,6 +1429,20 @@
                     "title": "Central Pharm",
                     "address": "Emart 2 давхарт",
                     "phone1": "",
+                    "excerpt": "Эмийн үйлдвэрлэл, худалдаа",
+                    "image": "https://source.unsplash.com/random/1200x600?medicine,pharmacy"
+                },
+                {
+                    "title": "Хүрмэн эмийн сан",
+                    "address": "Баянзүрх дүүрэг 26-р хороо хүннү гудамж Сүмбэр орд ",
+                    "phone1": "77052328",
+                    "excerpt": "Эмийн үйлдвэрлэл, худалдаа",
+                    "image": "https://source.unsplash.com/random/1200x600?medicine,pharmacy"
+                },
+                {
+                    "title": "Эвтномин Агро ХХК Малын эм ханган нийлүүлэх байгууллага",
+                    "address": "Шинэ Монгол Хороолол, 904-р байр",
+                    "phone1": "99055011",
                     "excerpt": "Эмийн үйлдвэрлэл, худалдаа",
                     "image": "https://source.unsplash.com/random/1200x600?medicine,pharmacy"
                 }
