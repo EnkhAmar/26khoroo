@@ -897,14 +897,6 @@
             ]
         },
         {
-            "title": "Эрүүл мэндийн үзлэг",
-            "url": "#",
-            "excerpt": "",
-            "slug": "health-check",
-            "image": "https://i.ibb.co/PQxxvYf/healthcare.jpg",
-            "items": []
-        },
-        {
             "title": "Шуудан, тийз захиалга",
             "url": "#",
             "excerpt": "Шуудан, Онгоцны тийз, Агаарын тээвэр",
@@ -1827,7 +1819,53 @@
                     "fbName": "",
                     "fbLink": "",
                     "image": "https://source.unsplash.com/random/1200x600?salon"
+                }, {
+                    "title": "Lotus Spa",
+                    "address": "Саруул хотхон 117р байр",
+                    "phone1": "95938888",
+                    "phone2": "",
+                    "excerpt": "",
+                    "fbName": "",
+                    "fbLink": "",
+                    "image": "https://source.unsplash.com/random/1200x600?salon"
+                }, {
+                    "title": "Slim тураах спа салон",
+                    "address": "Саруул хотхон 117р байр",
+                    "phone1": "80077578",
+                    "phone2": "",
+                    "excerpt": "",
+                    "fbName": "",
+                    "fbLink": "",
+                    "image": "https://source.unsplash.com/random/1200x600?salon"
+                }, {
+                    "title": "Tseban salon ",
+                    "address": "Баянзүрх дүүрэг 26-р хороо хүннү гудамж Сүмбэр орд",
+                    "phone1": "88810199",
+                    "phone2": "",
+                    "excerpt": "",
+                    "fbName": "",
+                    "fbLink": "https://www.facebook.com/Seoul-Hair-Salon651183304997619",
+                    "image": "https://scontent.fuln11-1.fna.fbcdn.net/v/t39.30808-6/270253129_4698958480220061_1901146376552138733_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=PRPPnbuSE4MAX-wZ285&tn=VRLSYekk-OiKbBe3&_nc_ht=scontent.fuln11-1.fna&oh=00_AT9ve0pWRS7EZ49V4naiBa1LfNwxmcROe9onQqoK8Wswdw&oe=623CCACE"
+                }, {
+                    "title": "Үсчин гоо сайхан  ",
+                    "address": "Шинэ Монгол Хороолол, 904-р байр",
+                    "phone1": "88900 4666",
+                    "phone2": "",
+                    "excerpt": "",
+                    "fbName": "",
+                    "fbLink": "",
+                    "image": "https://source.unsplash.com/random/1200x600?salon"
+                }, {
+                    "title": "Orange hair salon",
+                    "address": "Park od Mall",
+                    "phone1": "88900 4666",
+                    "phone2": "",
+                    "excerpt": "",
+                    "fbName": "",
+                    "fbLink": "https://www.facebook.com/OrangeSpaSalon/",
+                    "image": "https://scontent.fuln11-1.fna.fbcdn.net/v/t1.6435-9/128385639_3467649513320494_7975405092955767334_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=zpoFTHUy5v8AX9eop8u&_nc_ht=scontent.fuln11-1.fna&oh=00_AT_PiIqF0m4BPVfTlzb5P3nqdEPSpyive3iIwTLwqwRbUA&oe=625ED796"
                 }
+        
             ]
         },
         {
@@ -2008,6 +2046,16 @@
                     "fbName": "Undes Coffee and tea house",
                     "fbLink": "https://www.facebook.com/UndesCoffeeTea",
                     "image": "https://scontent.fuln1-2.fna.fbcdn.net/v/t1.6435-9/166819163_136171415176920_2737491637162814011_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=e3f864&_nc_ohc=vSq8QlithM4AX8z4FZw&_nc_ht=scontent.fuln1-2.fna&oh=00_AT87TWFMK4Vu7lWEYsEbucJVUq6Pk-uT7_0x3ZYcrLIF9Q&oe=62565388"
+                },
+                {
+                    "title": "Tous Le Jours",
+                    "address": "И-март",
+                    "phone1": "",
+                    "phone2": "",
+                    "excerpt": "",
+                    "fbName": "",
+                    "fbLink": "https://www.facebook.com/Tous-Les-Jours-Mongolia-108687557477762",
+                    "image": "https://scontent.fuln11-1.fna.fbcdn.net/v/t1.6435-9/96067280_2128481310631847_7643100745130049536_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=stFZ_YC6NSsAX_7eNaD&_nc_ht=scontent.fuln11-1.fna&oh=00_AT_pB_3-HUatGENkLwoo1z-6rZmpuI-hyEOqPjwTed3ZqA&oe=625C50D3"
                 }
             ]
         },
@@ -2368,6 +2416,7 @@
                 }
             ]
         },
+        {},
         {
             "title": "Банк санхүү",
             "url": "#",
