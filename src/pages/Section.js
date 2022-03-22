@@ -189,7 +189,7 @@ const Section = ({ match }) => {
 
   useEffect(() => {
     setPage(1);
-  }, [location]);
+  }, [location, searchPattern]);
 
   const handlePagination = (event, value) => {
     setPage(value);
